@@ -1,0 +1,40 @@
+{"ts":"2019:10:20:16:46:28","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:16:46:28","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:16:46:28","level":"info","message":"Username added."}
+{"ts":"2019:10:20:16:46:28","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:20:16:50:08","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:16:50:08","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:16:50:08","level":"info","message":"Username added."}
+{"ts":"2019:10:20:16:50:08","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:20:16:56:43","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:16:56:43","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:16:56:43","level":"info","message":"Username added."}
+{"ts":"2019:10:20:16:56:43","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:20:16:57:37","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:16:57:37","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:16:57:37","level":"info","message":"Username added."}
+{"ts":"2019:10:20:16:57:37","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:20:17:00:52","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:17:00:52","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:17:00:53","level":"info","message":"Username added."}
+{"ts":"2019:10:20:17:00:53","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:20:17:02:49","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:17:02:49","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:17:02:49","level":"info","message":"Username already exists!"}
+{"ts":"2019:10:20:17:02:49","level":"info","message":"Got result: {\"result\":false,\"message\":\"Already a user.\"}"}
+{"ts":"2019:10:20:17:03:01","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:17:03:01","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:17:03:01","level":"info","message":"Username added."}
+{"ts":"2019:10:20:17:03:01","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:20:17:03:10","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:17:03:10","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:17:03:10","level":"info","message":"Username added."}
+{"ts":"2019:10:20:17:03:10","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:20:17:15:13","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:17:15:13","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:17:15:13","level":"info","message":"Username added."}
+{"ts":"2019:10:20:17:15:13","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:20:17:18:11","level":"info","message":"Got request for the url: /apps/demoApp/register"}
+{"ts":"2019:10:20:17:18:11","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/demoApp/apis/register.js"}
+{"ts":"2019:10:20:17:18:11","level":"info","message":"Username added."}
+{"ts":"2019:10:20:17:18:11","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
