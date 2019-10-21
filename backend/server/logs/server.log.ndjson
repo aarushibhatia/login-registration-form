@@ -1,0 +1,8 @@
+{"ts":"2019:10:21:16:20:15","level":"info","message":"*************************************"}
+{"ts":"2019:10:21:16:20:15","level":"info","message":"*************************************"}
+{"ts":"2019:10:21:16:20:15","level":"info","message":"Logging subsystem initialized."}
+{"ts":"2019:10:21:16:20:15","level":"info","message":"Initializing the API registry."}
+{"ts":"2019:10:21:16:20:15","level":"info","message":"Read API registry: {\n\"/corsProxy\" : \"/apis/corsProxy.js\"\n}"}
+{"ts":"2019:10:21:16:20:15","level":"info","message":"Read App API registry: {\n\"/corsProxy\" : \"/apis/corsProxy.js\"\n}"}
+{"ts":"2019:10:21:16:20:15","level":"info","message":"Attaching socket listener on 0.0.0.0:9000"}
+{"ts":"2019:10:21:16:20:15","level":"info","message":"Server started on 0.0.0.0:9000"}

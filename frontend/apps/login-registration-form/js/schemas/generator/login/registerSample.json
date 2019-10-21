@@ -1,0 +1,69 @@
+{
+    "type": "default",
+    "form_id": "login-form-id",
+    "action": "",
+    "method": "",
+    "css": "mdl",
+    "sectionLayout": "collapsible",
+    "schema": {
+        "sections": [
+            {
+                "name": "Registration Details",
+                "id": "sec_01",
+                "isPrimary": true,
+                "rows": [
+                    {
+                        "row_id": "row_00",
+                        "cols": [
+                            {
+                                "label": "Name",
+                                "colSpan": "4",
+                                "colOffset": "",
+                                "field": {
+                                    "id": "name",
+                                    "fieldType": "textfield",
+                                    "dataType": "text",
+                                    "maxLength": "20",
+                                    "isRequired": true
+                                }
+                            },
+                            {
+                                "label": "Username",
+                                "colSpan": "4",
+                                "colOffset": "",
+                                "field": {
+                                    "id": "username",
+                                    "fieldType": "textfield",
+                                    "dataType": "text",
+                                    "maxLength": "20",
+                                    "isRequired": true
+                                }
+                            },
+                            {
+                                "label": "Password",
+                                "colSpan": "4",
+                                "colOffset": "",
+                                "field": {
+                                    "id": "password",
+                                    "fieldType": "textfield",
+                                    "dataType": "password"
+                                }
+                            }   
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "submit": {
+        "id": "submitLogin",
+        "name": "Submit",
+        "isCancelable": true,
+        "helperLink": {
+            "href": "",
+            "onclick": ""
+        }
+    }
+    }
+
+

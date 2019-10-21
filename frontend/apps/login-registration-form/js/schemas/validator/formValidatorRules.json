@@ -1,0 +1,19 @@
+{
+    "sample-form-id": {
+        "dob": {
+            "onInputFocus": "js(LOG.info(element.id + ' : ' + element.value))",
+            "onLostFocus": "checkIfNotFutureDate(element)",
+            "errorMessage": "Error Message"
+        },
+        "email": {
+            "onLostFocus": "validateEmail(element)"
+        }
+    },
+    "any-possible-form-id": {
+        "any-contained-field-id": {
+            "onInputFocus": "functionName(element)",
+            "onLostFocus": "js()",
+            "errorMessage": "Error Message"
+        }
+    }
+}

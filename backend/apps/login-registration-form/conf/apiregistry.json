@@ -1,0 +1,7 @@
+{
+    "/apps/demoApp/login" : "/apis/login.js",
+    "/apps/demoApp/register" : "/apis/register.js",
+    "/apps/demoApp/display-registered-users" : "/apis/display.js",
+    "/apps/demoApp/update" : "/apis/update.js",
+    "/apps/demoApp/get-details" : "/apis/getDetails.js"
+}
