@@ -18,7 +18,7 @@ const init = async _ => {
 const main = async _ => {
 	let location = window.location.href;
 	if (!router.isInHistory(location) || !session.get(APP_CONSTANTS.USERID))
-		router.loadPage(APP_CONSTANTS.MAIN_THTML);
+		router.loadPage(APP_CONSTANTS.REGISTER_THTML);
 	else 
 		router.loadPage(location);
 }

@@ -1,8 +1,77 @@
-{"ts":"2019:10:21:16:20:15","level":"info","message":"*************************************"}
-{"ts":"2019:10:21:16:20:15","level":"info","message":"*************************************"}
-{"ts":"2019:10:21:16:20:15","level":"info","message":"Logging subsystem initialized."}
-{"ts":"2019:10:21:16:20:15","level":"info","message":"Initializing the API registry."}
-{"ts":"2019:10:21:16:20:15","level":"info","message":"Read API registry: {\n\"/corsProxy\" : \"/apis/corsProxy.js\"\n}"}
-{"ts":"2019:10:21:16:20:15","level":"info","message":"Read App API registry: {\n\"/corsProxy\" : \"/apis/corsProxy.js\"\n}"}
-{"ts":"2019:10:21:16:20:15","level":"info","message":"Attaching socket listener on 0.0.0.0:9000"}
-{"ts":"2019:10:21:16:20:15","level":"info","message":"Server started on 0.0.0.0:9000"}
+{"ts":"2019:10:22:13:58:03","level":"info","message":"*************************************"}
+{"ts":"2019:10:22:13:58:03","level":"info","message":"*************************************"}
+{"ts":"2019:10:22:13:58:03","level":"info","message":"Logging subsystem initialized."}
+{"ts":"2019:10:22:13:58:03","level":"info","message":"Initializing the API registry."}
+{"ts":"2019:10:22:13:58:03","level":"info","message":"Read API registry: {\n\"/corsProxy\" : \"/apis/corsProxy.js\"\n}"}
+{"ts":"2019:10:22:13:58:03","level":"info","message":"Read App API registry: {\n\"/corsProxy\" : \"/apis/corsProxy.js\"\n}"}
+{"ts":"2019:10:22:13:58:03","level":"info","message":"Attaching socket listener on 0.0.0.0:9000"}
+{"ts":"2019:10:22:13:58:03","level":"info","message":"Server started on 0.0.0.0:9000"}
+{"ts":"2019:10:22:13:58:25","level":"info","message":"Got request for the url: /apps/login-registration-form/register"}
+{"ts":"2019:10:22:13:58:25","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/register.js"}
+{"ts":"2019:10:22:13:58:25","level":"info","message":"4667c4d1-80a9-47b5-9fd0-4c935711e553"}
+{"ts":"2019:10:22:13:58:25","level":"info","message":1571732905300}
+{"ts":"2019:10:22:13:58:25","level":"info","message":"1571732905300"}
+{"ts":"2019:10:22:13:58:25","level":"info","message":"Username added."}
+{"ts":"2019:10:22:13:58:25","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:22:13:59:29","level":"info","message":"Got request for the url: /apps/login-registration-form/register"}
+{"ts":"2019:10:22:13:59:29","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/register.js"}
+{"ts":"2019:10:22:13:59:29","level":"info","message":"Username already exists!"}
+{"ts":"2019:10:22:13:59:29","level":"info","message":"Got result: {\"result\":false,\"message\":\"Already a user.\"}"}
+{"ts":"2019:10:22:14:09:42","level":"info","message":"Got request for the url: /apps/login-registration-form/register"}
+{"ts":"2019:10:22:14:09:42","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/register.js"}
+{"ts":"2019:10:22:14:09:42","level":"info","message":"8b90c043-ab94-47e5-82ac-62f774bade66"}
+{"ts":"2019:10:22:14:09:42","level":"info","message":1571733582075}
+{"ts":"2019:10:22:14:09:42","level":"info","message":"1571733582075"}
+{"ts":"2019:10:22:14:09:42","level":"info","message":"Username added."}
+{"ts":"2019:10:22:14:09:42","level":"info","message":"Got result: {\"result\":true,\"message\":\"User registered.\"}"}
+{"ts":"2019:10:22:14:10:06","level":"info","message":"Got request for the url: /apps/login-registration-form/login"}
+{"ts":"2019:10:22:14:10:06","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/login.js"}
+{"ts":"2019:10:22:14:10:06","level":"info","message":"Got login request for username: aarushibhatia"}
+{"ts":"2019:10:22:14:10:06","level":"info","message":"User logged in."}
+{"ts":"2019:10:22:14:10:06","level":"info","message":"Got result: {\"result\":true,\"message\":\"User logged in.\"}"}
+{"ts":"2019:10:22:14:10:07","level":"info","message":"Got request for the url: /apps/login-registration-form/display-registered-users"}
+{"ts":"2019:10:22:14:10:07","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/display.js"}
+{"ts":"2019:10:22:14:10:07","level":"info","message":"Got fetch request for registered users. "}
+{"ts":"2019:10:22:14:10:07","level":"info","message":[{"Userid":1,"uuid":"b0d4ab52-0b10-4b3c-9fc3-23bab5dd9731","username":"aarushibhatia","fullName":"Aarushi Bhatia","password":"aarushi25","time":"1571732905300","isDeleted":0},{"Userid":2,"uuid":"98939684-6ae7-4db6-844b-486ea046221c","username":"abhishekbhatia","fullName":"Abhishek Bhatia","password":"abhishek21","time":"1571733582076","isDeleted":0}]}
+{"ts":"2019:10:22:14:10:07","level":"info","message":"Got result: {\"result\":[{\"Userid\":1,\"uuid\":\"b0d4ab52-0b10-4b3c-9fc3-23bab5dd9731\",\"username\":\"aarushibhatia\",\"fullName\":\"Aarushi Bhatia\",\"password\":\"aarushi25\",\"time\":\"1571732905300\",\"isDeleted\":0},{\"Userid\":2,\"uuid\":\"98939684-6ae7-4db6-844b-486ea046221c\",\"username\":\"abhishekbhatia\",\"fullName\":\"Abhishek Bhatia\",\"password\":\"abhishek21\",\"time\":\"1571733582076\",\"isDeleted\":0}],\"message\":\"true\"}"}
+{"ts":"2019:10:22:14:10:10","level":"info","message":"Got request for the url: /apps/login-registration-form/get-details"}
+{"ts":"2019:10:22:14:10:10","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/getDetails.js"}
+{"ts":"2019:10:22:14:10:10","level":"info","message":[{"fullName":"Aarushi Bhatia","password":"aarushi25"}]}
+{"ts":"2019:10:22:14:10:10","level":"info","message":"Got result: {\"result\":true,\"results\":[{\"fullName\":\"Aarushi Bhatia\",\"password\":\"aarushi25\"}]}"}
+{"ts":"2019:10:22:14:10:20","level":"info","message":"Got request for the url: /apps/login-registration-form/update"}
+{"ts":"2019:10:22:14:10:20","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/update.js"}
+{"ts":"2019:10:22:14:10:21","level":"info","message":"Updated."}
+{"ts":"2019:10:22:14:10:21","level":"info","message":"Got result: {\"result\":true,\"message\":\"User details updated.\"}"}
+{"ts":"2019:10:22:14:17:03","level":"info","message":"*************************************"}
+{"ts":"2019:10:22:14:17:03","level":"info","message":"*************************************"}
+{"ts":"2019:10:22:14:17:03","level":"info","message":"Logging subsystem initialized."}
+{"ts":"2019:10:22:14:17:03","level":"info","message":"Initializing the API registry."}
+{"ts":"2019:10:22:14:17:03","level":"info","message":"Read API registry: {\n\"/corsProxy\" : \"/apis/corsProxy.js\"\n}"}
+{"ts":"2019:10:22:14:17:03","level":"info","message":"Read App API registry: {\n\"/corsProxy\" : \"/apis/corsProxy.js\"\n}"}
+{"ts":"2019:10:22:14:17:03","level":"info","message":"Attaching socket listener on 0.0.0.0:9000"}
+{"ts":"2019:10:22:14:17:03","level":"info","message":"Server started on 0.0.0.0:9000"}
+{"ts":"2019:10:22:14:17:30","level":"info","message":"Got request for the url: /apps/login-registration-form/login"}
+{"ts":"2019:10:22:14:17:30","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/login.js"}
+{"ts":"2019:10:22:14:17:30","level":"info","message":"Got login request for username: aarushibhatia"}
+{"ts":"2019:10:22:14:17:30","level":"info","message":"Invalid credentials."}
+{"ts":"2019:10:22:14:17:30","level":"info","message":"Got result: {\"result\":false,\"message\":\"Invalid credentials.\"}"}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"Got request for the url: /apps/login-registration-form/login"}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/login.js"}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"Got login request for username: aarushibhatia"}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"User logged in."}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"Got result: {\"result\":true,\"message\":\"User logged in.\"}"}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"Got request for the url: /apps/login-registration-form/display-registered-users"}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/display.js"}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"Got fetch request for registered users. "}
+{"ts":"2019:10:22:14:17:35","level":"info","message":[{"Userid":2,"uuid":"98939684-6ae7-4db6-844b-486ea046221c","username":"abhishekbhatia","fullName":"Abhishek Bhatia","password":"abhishek21","time":"1571733582076","isDeleted":0},{"Userid":3,"uuid":"ef674449-d56b-4e78-80b5-264db76ad4fa","username":"aarushibhatia","fullName":"Aarushi Bhatia","password":"aarushi2512","time":"1571733620736","isDeleted":0}]}
+{"ts":"2019:10:22:14:17:35","level":"info","message":"Got result: {\"result\":[{\"Userid\":2,\"uuid\":\"98939684-6ae7-4db6-844b-486ea046221c\",\"username\":\"abhishekbhatia\",\"fullName\":\"Abhishek Bhatia\",\"password\":\"abhishek21\",\"time\":\"1571733582076\",\"isDeleted\":0},{\"Userid\":3,\"uuid\":\"ef674449-d56b-4e78-80b5-264db76ad4fa\",\"username\":\"aarushibhatia\",\"fullName\":\"Aarushi Bhatia\",\"password\":\"aarushi2512\",\"time\":\"1571733620736\",\"isDeleted\":0}],\"message\":\"true\"}"}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"Got request for the url: /apps/login-registration-form/login"}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/login.js"}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"Got login request for username: aarushibhatia"}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"User logged in."}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"Got result: {\"result\":true,\"message\":\"User logged in.\"}"}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"Got request for the url: /apps/login-registration-form/display-registered-users"}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"Looked up service, calling: /home/deep/git_repos/demoApp/backend/apps/login-registration-form/apis/display.js"}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"Got fetch request for registered users. "}
+{"ts":"2019:10:22:14:19:00","level":"info","message":[{"Userid":2,"uuid":"98939684-6ae7-4db6-844b-486ea046221c","username":"abhishekbhatia","fullName":"Abhishek Bhatia","password":"abhishek21","time":"1571733582076","isDeleted":0},{"Userid":3,"uuid":"ef674449-d56b-4e78-80b5-264db76ad4fa","username":"aarushibhatia","fullName":"Aarushi Bhatia","password":"aarushi2512","time":"1571733620736","isDeleted":0}]}
+{"ts":"2019:10:22:14:19:00","level":"info","message":"Got result: {\"result\":[{\"Userid\":2,\"uuid\":\"98939684-6ae7-4db6-844b-486ea046221c\",\"username\":\"abhishekbhatia\",\"fullName\":\"Abhishek Bhatia\",\"password\":\"abhishek21\",\"time\":\"1571733582076\",\"isDeleted\":0},{\"Userid\":3,\"uuid\":\"ef674449-d56b-4e78-80b5-264db76ad4fa\",\"username\":\"aarushibhatia\",\"fullName\":\"Aarushi Bhatia\",\"password\":\"aarushi2512\",\"time\":\"1571733620736\",\"isDeleted\":0}],\"message\":\"true\"}"}

@@ -1,53 +1,51 @@
-import { autoforms } from "./lib/autoforms/autoforms.mjs";
 import { router } from "/framework/js/router.mjs";
 
 const init = async () => {
-
     try {
-        const formStatus = await initForm();
-        if (!formStatus) throw new Error("Form initiation failed.");
-
+        document.querySelector("p#login-page").onclick = () => router.loadPage(APP_CONSTANTS.LOGIN_THTML);
+        registerFormSubmitAction();
     } catch (error) {
         console.error(error);
     }
 };
 
-const initForm = async () => {
+const registerFormSubmitAction = () => {
+    const formElement = document.querySelector("form#registration-form");
 
-    const config = {
-        bindingDivElement: document.querySelector('#login-form-div'),
-        schemaPath: `${APP_CONSTANTS.APP_PATH}/js/schemas/generator/login/registerSample.json`
-    };
-
-    try {
-        const setupStatus = await autoforms.setupForm(config);
-        if (!setupStatus) throw new Error("Unable to setup form.");
-
-        initAndRunSubmitLoop(config.bindingDivElement);
-
-        return true;
-
-    } catch (error) {
-        console.error(error);
-        return false;
+    if (!formElement) {
+        console.error("Sample Form not found.");
+        return;
     }
-};
 
-const initAndRunSubmitLoop = async (bindingDivElement) => {
-    try {
-        let resolvedState = false;
-        while (!resolvedState) {
-            let fieldData = await autoforms.mapFormToJSON(bindingDivElement);
-            if (!fieldData) throw new Error("Cannot map field data, please recheck configuration.");
-            resolvedState = await handleSubmit(fieldData);
+    formElement.querySelector("#register").addEventListener("click", async (event) => {
+        event.preventDefault();
+        try {
+            if (validateFullName(document.querySelector('#name').value)) {
+                const requestObject = {
+                    username: document.querySelector('#uname').value,
+                    fullName: document.querySelector('#name').value,
+                    password: document.querySelector('#psw').value
+                };
+
+                const responseObject = await (await fetch(APP_CONSTANTS.API_REGISTER, { method: "POST", body: JSON.stringify(requestObject) })).json();
+                if (responseObject.result == true) {
+                    alert(responseObject.message);
+                }
+                else {
+                    alert(responseObject.message);
+                }
+            }
+            else {
+                return;
+            }
+        } catch (error) {
+            console.error(error);
         }
-    } catch (error) {
-        console.error(error);
-    }
-    return;
+
+    });
 };
 
-const ValidateFullName = async (inputText) => {
+const validateFullName = (inputText) => {
     try {
         let fullNameformat = /^[a-zA-Z ]+$/;
         if (inputText.match(fullNameformat)) {
@@ -64,41 +62,4 @@ const ValidateFullName = async (inputText) => {
     }
 }
 
-const handleSubmit = async (fieldData) => {
-    try {
-
-        let responseObject = await registerUser(fieldData);
-        return responseObject.result;
-
-
-    } catch (error) {
-        console.error(error);
-        return false;
-    }
-};
-
-const registerUser = async (fieldData) => {
-    console.log(fieldData);
-    console.log(fieldData.name);
-
-    const requestObject = {
-        username: fieldData.username,
-        password: fieldData.password,
-        name: fieldData.name
-    };
-
-    const responseObject = await (await fetch(APP_CONSTANTS.API_REGISTER, { method: "POST", body: JSON.stringify(requestObject) })).json();
-    if (responseObject.result == true) {
-        alert(responseObject.message);
-        router.loadPage(APP_CONSTANTS.LOGIN_THTML);
-        return { result: true };
-    }
-    else {
-        alert(responseObject.message);
-        return { result: false };
-    }
-
-
-};
-
-export const register = { init };
+export const register = { init }; 

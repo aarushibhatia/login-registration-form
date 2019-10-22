@@ -42,7 +42,7 @@ const fillTableAction = async () => {
 
 document.querySelector('#logout').addEventListener('click', async (event) => {
     try {
-        router.loadPage(APP_CONSTANTS.MAIN_THTML);
+        router.loadPage(APP_CONSTANTS.REGISTER_THTML);
     }
     catch (error) {
         console.error(error);

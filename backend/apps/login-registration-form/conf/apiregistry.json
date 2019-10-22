@@ -1,7 +1,7 @@
 {
-    "/apps/demoApp/login" : "/apis/login.js",
-    "/apps/demoApp/register" : "/apis/register.js",
-    "/apps/demoApp/display-registered-users" : "/apis/display.js",
-    "/apps/demoApp/update" : "/apis/update.js",
-    "/apps/demoApp/get-details" : "/apis/getDetails.js"
+    "/apps/login-registration-form/login" : "/apis/login.js",
+    "/apps/login-registration-form/register" : "/apis/register.js",
+    "/apps/login-registration-form/display-registered-users" : "/apis/display.js",
+    "/apps/login-registration-form/update" : "/apis/update.js",
+    "/apps/login-registration-form/get-details" : "/apis/getDetails.js"
 }
