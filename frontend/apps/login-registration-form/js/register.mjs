@@ -13,7 +13,7 @@ const registerFormSubmitAction = () => {
     const formElement = document.querySelector("form#registration-form");
 
     if (!formElement) {
-        console.error("Sample Form not found.");
+        console.error("Registration Form not found.");
         return;
     }
 
@@ -26,14 +26,8 @@ const registerFormSubmitAction = () => {
                     fullName: document.querySelector('#name').value,
                     password: document.querySelector('#psw').value
                 };
-
                 const responseObject = await (await fetch(APP_CONSTANTS.API_REGISTER, { method: "POST", body: JSON.stringify(requestObject) })).json();
-                if (responseObject.result == true) {
-                    alert(responseObject.message);
-                }
-                else {
-                    alert(responseObject.message);
-                }
+                alert(responseObject.message);
             }
             else {
                 return;
@@ -41,7 +35,6 @@ const registerFormSubmitAction = () => {
         } catch (error) {
             console.error(error);
         }
-
     });
 };
 

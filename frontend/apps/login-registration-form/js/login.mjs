@@ -25,7 +25,8 @@ const loginFormSubmitAction = () => {
 
             const responseObject = await (await fetch(APP_CONSTANTS.API_LOGIN, { method: "POST", body: JSON.stringify(requestObject) })).json();
             if (responseObject.result == true) {
-                 router.loadPage(APP_CONSTANTS.LIST_THTML);
+                router.loadPage(APP_CONSTANTS.GETDETAILS_THTML);
+                console.log(responseObject.results);
             }
             else {
                 alert(responseObject.message);
@@ -33,11 +34,8 @@ const loginFormSubmitAction = () => {
 
         } catch (error) {
             console.error(error);
-        }
-
+        };
     });
-
-
 };
 
 export const login = { init }; 

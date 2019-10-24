@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{i18n_en.Title}}</title>
+    <link href="./css/main.css" rel="stylesheet" type="text/css">
+    <script type="module">
+        import { update } from "./js/update.mjs";
+        update.init();
+    </script>
+</head>
+
+<body>
+
+    <form id="update-form" class="modal-content animate">
+
+        <div class="container">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter Full Name" id="name" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="psw" required>
+
+            <button type="edit" id="edit">Update</button>
+            <button type="logout" id="logout">Logout</button>
+        </div>
+
+    </form>
+
+</body>
+
+</html>

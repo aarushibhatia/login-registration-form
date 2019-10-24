@@ -16,14 +16,14 @@ export const APP_CONSTANTS = {
 
     REGISTER_THTML: APP_PATH + "/register.html",
     LOGIN_THTML: APP_PATH + "/login.html",
-    LIST_THTML: APP_PATH + "/list.html",
-    EDIT_THTML: APP_PATH + "/edit.html",
+    GETDETAILS_THTML: APP_PATH + "/get-details.html",
+    UPDATE_THTML: APP_PATH + "/update.html",
 
-    API_LOGIN: BACKEND + "/apps/login-registration-form/login",
-    API_REGISTER: BACKEND + "/apps/login-registration-form/register",
-    API_DISPLAY: BACKEND + "/apps/login-registration-form/display-registered-users",
-    API_UPDATE: BACKEND + "/apps/login-registration-form/update",
-    API_GETDETAILS: BACKEND + "/apps/login-registration-form/get-details",
+    API_LOGIN: BACKEND + "/apps/login-registration-form/users/login",
+    API_REGISTER: BACKEND + "/apps/login-registration-form/users/register",
+    API_UPDATE: BACKEND + "/apps/login-registration-form/users/update",
+    API_GETDETAILS: BACKEND + "/apps/login-registration-form/users/get-details",
+    API_DELETE: BACKEND + "/apps/login-registration-form/users/delete",
 
     USERID: "id",
     GUEST_ROLE: "guest",
@@ -32,8 +32,8 @@ export const APP_CONSTANTS = {
                 $$.MONKSHU_CONSTANTS.ERROR_THTML,
                 APP_PATH + "/register.html",
                 APP_PATH + "/login.html",
-                APP_PATH + "/list.html",
-                APP_PATH + "/edit.html"
+                APP_PATH + "/get-details.html",
+                APP_PATH + "/update.html"
                 ]
     }
 }

@@ -1,8 +1,4 @@
-let mysql = require('./../3p/node_modules/mysql');
+const mysql = require("./../3p/node_modules/mysql");
+const dbConfig = require("../db/db.conf.json");
 
-exports.connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Aarushi1!',
-    database: 'demoAppdb'
-});
+exports.getConnection = () => mysql.createConnection(dbConfig);
