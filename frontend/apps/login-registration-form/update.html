@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{i18n_en.Title}}</title>
+    <title>{{i18n.Title}}</title>
     <link href="./css/main.css" rel="stylesheet" type="text/css">
     <script type="module">
         import { update } from "./js/update.mjs";
@@ -15,14 +15,14 @@
     <form id="update-form" class="modal-content animate">
 
         <div class="container">
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" placeholder="Enter Full Name" id="name" required>
+            <label for="name"><b>{{i18n.FullName}}</b></label>
+            <input type="text" placeholder="Enter Full Name" id="full-name" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" id="psw" required>
+            <label for="psw"><b>{{i18n.Password}}</b></label>
+            <input type="password" placeholder="Enter Password" id="password" required>
 
-            <button type="edit" id="edit">Update</button>
-            <button type="logout" id="logout">Logout</button>
+            <button type="edit" id="edit">{{i18n.Update}}</button>
+            <button type="logout" id="logout">{{i18n.Logout}}</button>
         </div>
 
     </form>

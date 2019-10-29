@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{i18n_en.Title}}</title>
+    <title>{{i18n.Title}}</title>
     <link href="./css/register.css" rel="stylesheet" type="text/css">
     <script type="module">
         import { register } from "./js/register.mjs";
@@ -17,20 +17,20 @@
         <h2> Registration Page </h2>
 
         <div class="container">
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" placeholder="Enter Full Name" id="name" required>
+            <label for="full-name"><b>{{i18n.FullName}}</b></label>
+            <input type="text" placeholder="Enter Full Name" id="full-name" required>
 
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" id="uname" required>
+            <label for="username"><b>{{i18n.Username}}</b></label>
+            <input type="text" placeholder="Enter Username" id="username" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" id="psw" required>
+            <label for="password"><b>{{i18n.Password}}</b></label>
+            <input type="password" placeholder="Enter Password" id="password" required>
 
-            <button type="register" id="register">Register</button>
+            <button type="register" id="register">{{i18n.Register}}</button>
         </div>
 
-        <span class="psw">
-            <p id="login-page">Login</p>
+        <span class="password">
+            <p id="login-page">{{i18n.Login}}</p>
         </span>
 
     </form>

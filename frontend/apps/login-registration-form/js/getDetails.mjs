@@ -12,10 +12,10 @@ const init = async () => {
 
 const fillUsersDetails = async () => {
 
-    const table = document.querySelector('table#dataTable');
+    const table = document.querySelector('table#users-table');
 
-    const editButton = `<button type="button" id="editButton"> EDIT </button>`;
-    const deleteButton = `<button type="button" id="deleteButton"> DELETE </button>`
+    const editButton = `<button type="button" id="edit-button"> EDIT </button>`;
+    const deleteButton = `<button type="button" id="delete-button"> DELETE </button>`
 
     try {
         const requestObject = {};
@@ -54,7 +54,7 @@ document.querySelector('#logout').addEventListener('click', async (event) => {
 });
 
 const editUserDetails = async () => {
-    const buttons = document.querySelectorAll('#editButton');
+    const buttons = document.querySelectorAll('#edit-button');
     console.log(buttons);
     for (const rowButton of buttons) {
         rowButton.addEventListener('click', async (event) => {
@@ -68,8 +68,8 @@ const editUserDetails = async () => {
                     router.loadPage(APP_CONSTANTS.UPDATE_THTML);
                     delete localStorage.fullName;
                     delete localStorage.username;
-                    localStorage.setItem('username', document.querySelector('table#dataTable').rows[num].cells[0].innerHTML);
-                    localStorage.setItem('fullName', document.querySelector('table#dataTable').rows[num].cells[1].innerHTML);
+                    localStorage.setItem('username', document.querySelector('table#users-table').rows[num].cells[0].innerHTML);
+                    localStorage.setItem('fullName', document.querySelector('table#users-table').rows[num].cells[1].innerHTML);
                 }
 
                 else {
@@ -85,14 +85,14 @@ const editUserDetails = async () => {
 }
 
 const deleteUser = async () => {
-    const buttons = document.querySelectorAll('#deleteButton');
+    const buttons = document.querySelectorAll('#delete-button');
     console.log(buttons);
     for (const rowButton of buttons) {
         rowButton.addEventListener('click', async (event) => {
             try {
                 const num = event.target.parentElement.parentElement.rowIndex;
                 const requestObject = {
-                    username: document.querySelector('table#dataTable').rows[num].cells[0].innerHTML
+                    username: document.querySelector('table#users-table').rows[num].cells[0].innerHTML
                 };
                 let responseObject = await (await fetch(APP_CONSTANTS.API_DELETE, { method: "POST", body: JSON.stringify(requestObject) })).json();
 

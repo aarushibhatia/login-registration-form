@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>{{i18n_en.Title}}</title>
+    <title>{{i18n.Title}}</title>
     <script type="module">
         import { login } from "./js/login.mjs";
         login.init();
@@ -15,15 +15,15 @@
     <form id="login-form" class="modal-content animate">
 
         <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" id="uname" required>
+            <label for="username"><b>{{i18n.Username}}</b></label>
+            <input type="text" placeholder="Enter Username" id="username" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" id="psw" required>
+            <label for="password"><b>{{i18n.Password}}</b></label>
+            <input type="password" placeholder="Enter Password" id="password" required>
 
-            <button type="submit">Login</button>
+            <button type="submit">{{i18n.Login}}</button>
             <label>
-                <input type="checkbox" name="remember"> Remember me
+                <input type="checkbox" name="remember">{{i18n.RememberMe}}
             </label>
         </div>
 

@@ -29,11 +29,11 @@ export const APP_CONSTANTS = {
     GUEST_ROLE: "guest",
     PERMISSIONS_MAP: {
         guest: [
-                $$.MONKSHU_CONSTANTS.ERROR_THTML,
-                APP_PATH + "/register.html",
-                APP_PATH + "/login.html",
-                APP_PATH + "/get-details.html",
-                APP_PATH + "/update.html"
-                ]
+            $$.MONKSHU_CONSTANTS.ERROR_THTML,
+            APP_PATH + "/register.html",
+            APP_PATH + "/login.html",
+            APP_PATH + "/get-details.html",
+            APP_PATH + "/update.html"
+        ]
     }
 }

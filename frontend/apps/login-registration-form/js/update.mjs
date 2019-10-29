@@ -2,7 +2,7 @@ import { router } from "/framework/js/router.mjs";
 
 const init = async () => {
     try {
-        document.querySelector('#name').value = localStorage.getItem('fullName');
+        document.querySelector('#full-name').value = localStorage.getItem('fullName');
     } catch (error) {
         console.error(error);
     }
@@ -22,8 +22,8 @@ document.querySelector("#edit").addEventListener("click", async (event) => {
     try {
         const requestObject = {
             username: localStorage.getItem('username'),
-            fullName: document.querySelector('#name').value,
-            password: document.querySelector('#psw').value
+            fullName: document.querySelector('#full-name').value,
+            password: document.querySelector('#password').value
         };
 
         const responseObject = await (await fetch(APP_CONSTANTS.API_UPDATE, { method: "POST", body: JSON.stringify(requestObject) })).json();

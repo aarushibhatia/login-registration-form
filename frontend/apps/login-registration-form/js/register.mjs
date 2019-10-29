@@ -20,11 +20,11 @@ const registerFormSubmitAction = () => {
     formElement.querySelector("#register").addEventListener("click", async (event) => {
         event.preventDefault();
         try {
-            if (validateFullName(document.querySelector('#name').value)) {
+            if (validateFullName(document.querySelector('#full-name').value)) {
                 const requestObject = {
-                    username: document.querySelector('#uname').value,
-                    fullName: document.querySelector('#name').value,
-                    password: document.querySelector('#psw').value
+                    username: document.querySelector('#username').value,
+                    fullName: document.querySelector('#full-name').value,
+                    password: document.querySelector('#password').value
                 };
                 const responseObject = await (await fetch(APP_CONSTANTS.API_REGISTER, { method: "POST", body: JSON.stringify(requestObject) })).json();
                 alert(responseObject.message);
@@ -42,12 +42,12 @@ const validateFullName = (inputText) => {
     try {
         let fullNameformat = /^[a-zA-Z ]+$/;
         if (inputText.match(fullNameformat)) {
-            document.querySelector('#name').focus();
+            document.querySelector('#full-name').focus();
             return true;
         }
         else {
             alert("You have entered an invalid full name!");
-            document.querySelector('#name').focus();
+            document.querySelector('#full-name').focus();
             return false;
         }
     } catch (error) {

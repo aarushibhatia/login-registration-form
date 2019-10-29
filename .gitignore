@@ -1,1 +1,2 @@
 backend/server/*
+backend/apps/login-registration-form/3p/node_modules*

@@ -19,8 +19,8 @@ const loginFormSubmitAction = () => {
         event.preventDefault();
         try {
             const requestObject = {
-                username: document.querySelector('#uname').value,
-                password: document.querySelector('#psw').value
+                username: document.querySelector('#username').value,
+                password: document.querySelector('#password').value
             };
 
             const responseObject = await (await fetch(APP_CONSTANTS.API_LOGIN, { method: "POST", body: JSON.stringify(requestObject) })).json();
