@@ -1,65 +1,50 @@
 const database = require("../../db/db.js");
 const crypto = require("crypto");
 
-exports.doService = async jsonReq => {
+exports.doService = async (jsonReq) => {
+
+	// Validate API request and check mandatory payload required
+	if (!validateRequest(jsonReq)) return { result: false, message: "Insufficient parameters." };
+
 	let connection;
 	try {
-		if (!validateRequest(jsonReq)) {
-			return { result: false, message: "Insufficient Parameters." };
-		}
-
 		connection = database.getConnection();
 
-		const isLoggedIn = await loginUser(connection, jsonReq);
-		if (!isLoggedIn) {
-			LOG.info("Invalid credentials.");
+		const userDetails = await loginUser(connection, jsonReq);
+		if (!userDetails) {
 			connection.destroy();
 			return { result: false, message: "Invalid credentials." };
 		}
 
-		LOG.info("User logged in.");
 		connection.destroy();
-		return { result: true, message: "User logged in." };
+		return { result: true, results: { user: userDetails } };
 	}
 
 	catch (error) {
 		LOG.error(error);
-		connection.destroy();
+		if (connection) connection.destroy();
 		return { result: false, message: "500 Internal Server Error" };
 	}
-}
+};
 
 const loginUser = (connection, jsonReq) => {
 	return new Promise((resolve, reject) => {
-		connection.query("SELECT salt from users where username = ? and isDeleted = 0", [jsonReq.username], (error, result) => {
-			if (error) {
-				LOG.error(error);
-				return reject(false);
-			}
-			if (result[0] == undefined) {
-				LOG.info("No such user exists.");
+		connection.query("SELECT * from users where username = ? and isDeleted = 0", [jsonReq.username], (error, results) => {
+			if (error) { return reject(error); }
+
+			if (!results || !results[0]) {
+				LOG.info(`Record for username '${jsonReq.username}' not found.`);
 				return resolve(false);
 			}
-			const userSalt = result[0].salt;
-			const hashPassword = crypto.pbkdf2Sync(jsonReq.password, userSalt, 1000, 64, 'sha512').toString('hex');
-			const sql = "SELECT exists (SELECT * from users where username = ? and password = ? and isDeleted = 0) as validUser"
-			connection.query(sql, [jsonReq.username, hashPassword], (error, result) => {
-				if (error) {
-					LOG.error(error);
-					return reject(false);
-				}
-				if (result[0].validUser > 0) {
-					LOG.info("User logged in.");
-					return resolve(true);
-				}
-				LOG.info("Invalid credentials.");
-				return resolve(false);
-			});
+
+			const hashPassword = sha512(jsonReq.password, results[0].salt);
+			return (results[0].password == hashPassword) ? resolve(results[0]) : resolve(false);
 		});
 	});
-};
+}
+
+
+// Hashing algorithm: SHA512
+const sha512 = (password, salt) => crypto.createHmac("sha512", salt).update(password).digest("hex");
 
 const validateRequest = (jsonReq) => (jsonReq && jsonReq.username && jsonReq.password);
-
-
-
