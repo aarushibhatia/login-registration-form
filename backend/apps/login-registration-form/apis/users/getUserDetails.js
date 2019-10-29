@@ -3,6 +3,10 @@ const database = require("../../db/db.js");
 exports.doService = async jsonReq => {
     let connection;
     try {
+        if (!validateRequest(jsonReq)) {
+            return { result: false, message: "Insufficient Parameters." };
+        }
+
         connection = database.getConnection();
 
         const isDetailsReceieved = await getUserDetails(connection, jsonReq);
@@ -25,9 +29,9 @@ exports.doService = async jsonReq => {
 }
 
 const getUserDetails = (connection, jsonReq) => {
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         const sql = "SELECT fullName, username from users where isDeleted = 0";
-        connection.query(sql, [jsonReq.username], function (error, result) {
+        connection.query(sql, [jsonReq.username], (error, result) => {
             if (error) {
                 LOG.error(error);
                 return reject(false);
@@ -38,6 +42,7 @@ const getUserDetails = (connection, jsonReq) => {
     });
 };
 
+const validateRequest = (jsonReq) => (jsonReq && jsonReq.username);
 
 
 

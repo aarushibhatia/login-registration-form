@@ -1,7 +1,3 @@
-/* 
- * (C) 2015 TekMonks. All rights reserved.
- * License: MIT - see enclosed license.txt file.
- */
 const FRONTEND = "http://localhost:3030";
 const BACKEND = "http://localhost:9000";
 const APP_PATH = `${FRONTEND}/apps/login-registration-form`;
@@ -27,10 +23,15 @@ export const APP_CONSTANTS = {
 
     USERID: "id",
     GUEST_ROLE: "guest",
+    USER_ROLE: "user",
     PERMISSIONS_MAP: {
         guest: [
             $$.MONKSHU_CONSTANTS.ERROR_THTML,
             APP_PATH + "/register.html",
+            APP_PATH + "/login.html"
+        ],
+        user: [
+            $$.MONKSHU_CONSTANTS.ERROR_THTML,
             APP_PATH + "/login.html",
             APP_PATH + "/get-details.html",
             APP_PATH + "/update.html"

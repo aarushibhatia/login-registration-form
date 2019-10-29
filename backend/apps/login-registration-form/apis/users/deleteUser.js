@@ -3,9 +3,9 @@ const database = require("../../db/db.js");
 exports.doService = async jsonReq => {
     let connection;
     try {
-        // if (!validateRequest(jsonReq)) {
-        //     return { result: false, message: "Insufficient Parameters." };
-        // }
+        if (!validateRequest(jsonReq)) {
+            return { result: false, message: "Insufficient Parameters." };
+        }
 
         connection = database.getConnection();
 
@@ -43,4 +43,4 @@ const deleteUser = (connection, jsonReq) => {
     });
 }
 
-// const validateRequest = (jsonReq) => (jsonReq && jsonReq.userId && jsonReq.user && jsonReq.user.userId);
+const validateRequest = (jsonReq) => (jsonReq && jsonReq.username);

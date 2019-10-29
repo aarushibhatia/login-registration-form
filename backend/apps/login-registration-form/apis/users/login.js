@@ -4,6 +4,10 @@ const crypto = require("crypto");
 exports.doService = async jsonReq => {
 	let connection;
 	try {
+		if (!validateRequest(jsonReq)) {
+			return { result: false, message: "Insufficient Parameters." };
+		}
+
 		connection = database.getConnection();
 
 		const isLoggedIn = await loginUser(connection, jsonReq);
@@ -53,7 +57,9 @@ const loginUser = (connection, jsonReq) => {
 			});
 		});
 	});
-}
+};
+
+const validateRequest = (jsonReq) => (jsonReq && jsonReq.username && jsonReq.password);
 
 
 

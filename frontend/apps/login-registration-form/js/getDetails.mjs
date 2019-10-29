@@ -23,7 +23,7 @@ const fillUsersDetails = async () => {
         const responseObject = await (await fetch(APP_CONSTANTS.API_GETDETAILS, { method: "POST", body: JSON.stringify(requestObject) })).json();
         console.log(responseObject);
         if (responseObject.result) {
-            for (var i = 0; i < responseObject.results.length; i++) {
+            for (let i = 0; i < responseObject.results.length; i++) {
                 const row = table.insertRow(i + 1);
                 const cell1 = row.insertCell(0);
                 const cell2 = row.insertCell(1);

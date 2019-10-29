@@ -5,6 +5,10 @@ const crypto = require("crypto");
 exports.doService = async jsonReq => {
     let connection;
     try {
+        if (!validateRequest(jsonReq)) {
+            return { result: false, message: "Insufficient Parameters." };
+        }
+
         connection = database.getConnection();
 
         const isUpdated = await updateUserDetails(connection, jsonReq);
@@ -30,13 +34,13 @@ const updateUserDetails = (connection, jsonReq) => {
     return new Promise((resolve, reject) => {
         const salt = crypto.randomBytes(16).toString('hex');
         const sql = "SELECT exists (SELECT * from users where username = ? and isDeleted = 0) as userExists";
-        connection.query(sql, [jsonReq.username], function (error, result) {
+        connection.query(sql, [jsonReq.username], (error, result) => {
             if (error) {
                 LOG.error(error);
                 return reject(false);
             }
             if (result[0].userExists > 0) {
-                connection.query('UPDATE users SET isDeleted = 1 where username = ?', [jsonReq.username]);
+                connection.query("UPDATE users SET isDeleted = 1 where username = ?", [jsonReq.username]);
                 connection.query("INSERT INTO users (uuid, username, fullName, password, salt, timestamp, isDeleted) VALUES(? , ?, ? , ?, ?, ?, ?)", [uuidv4(), jsonReq.username, jsonReq.fullName, crypto.pbkdf2Sync(jsonReq.password, salt, 1000, 64, 'sha512').toString('hex'), salt, new Date().getTime(), 0], function (error, result) {
                     if (error) {
                         LOG.error(error);
@@ -50,6 +54,7 @@ const updateUserDetails = (connection, jsonReq) => {
     });
 };
 
+const validateRequest = (jsonReq) => (jsonReq && jsonReq.username && jsonReq.fullName && jsonReq.password);
 
 
 

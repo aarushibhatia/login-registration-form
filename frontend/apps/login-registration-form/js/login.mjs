@@ -25,6 +25,8 @@ const loginFormSubmitAction = () => {
 
             const responseObject = await (await fetch(APP_CONSTANTS.API_LOGIN, { method: "POST", body: JSON.stringify(requestObject) })).json();
             if (responseObject.result == true) {
+                securityguard.setPermissionsMap(APP_CONSTANTS.PERMISSIONS_MAP);
+                securityguard.setCurrentRole(securityguard.getCurrentRole() || APP_CONSTANTS.USER_ROLE);
                 router.loadPage(APP_CONSTANTS.GETDETAILS_THTML);
                 console.log(responseObject.results);
             }
