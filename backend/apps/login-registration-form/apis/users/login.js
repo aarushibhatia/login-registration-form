@@ -29,7 +29,10 @@ exports.doService = async (jsonReq) => {
 
 const loginUser = (connection, jsonReq) => {
 	return new Promise((resolve, reject) => {
-		connection.query("SELECT * from users where username = ? and isDeleted = 0", [jsonReq.username], (error, results) => {
+		const query = "SELECT * from users where username = ? and isDeleted = 0";
+		const queryParams = [jsonReq.username];
+
+		connection.query(query, queryParams, (error, results) => {
 			if (error) { return reject(error); }
 
 			if (!results || !results[0]) {
@@ -38,10 +41,16 @@ const loginUser = (connection, jsonReq) => {
 			}
 
 			const hashPassword = sha512(jsonReq.password, results[0].salt);
-			return (results[0].password == hashPassword) ? resolve(results[0]) : resolve(false);
+			if (results[0].password != hashPassword) return resolve(false);
+
+			// Delete `salt` and `password` keys
+			delete results[0].salt;
+			delete results[0].password;
+
+			return resolve(results[0]);
 		});
 	});
-}
+};
 
 
 // Hashing algorithm: SHA512

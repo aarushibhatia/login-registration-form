@@ -1,4 +1,6 @@
 import { router } from "/framework/js/router.mjs";
+import { securityguard } from "/framework/js/securityguard.mjs";
+import { session } from "/framework/js/session.mjs";
 
 const init = async () => {
     try {
@@ -24,15 +26,15 @@ const loginFormSubmitAction = () => {
             };
 
             const responseObject = await (await fetch(APP_CONSTANTS.API_LOGIN, { method: "POST", body: JSON.stringify(requestObject) })).json();
-            if (responseObject.result == true) {
-                securityguard.setPermissionsMap(APP_CONSTANTS.PERMISSIONS_MAP);
-                securityguard.setCurrentRole(securityguard.getCurrentRole() || APP_CONSTANTS.USER_ROLE);
-                router.loadPage(APP_CONSTANTS.GETDETAILS_THTML);
-                console.log(responseObject.results);
-            }
-            else {
+            if (!responseObject.result) {
                 alert(responseObject.message);
+                return;
             }
+
+            securityguard.setCurrentRole(APP_CONSTANTS.USER_ROLE);
+            session.set("userId", responseObject.results.user.userId);
+
+            router.loadPage(APP_CONSTANTS.GETDETAILS_THTML, responseObject.results);
 
         } catch (error) {
             console.error(error);
