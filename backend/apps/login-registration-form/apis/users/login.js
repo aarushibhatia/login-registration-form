@@ -1,8 +1,6 @@
 const database = require("../../db/db.js");
 const crypto = require("crypto");
 
-let uuid;
-
 exports.doService = async jsonReq => {
 	let connection;
 	try {
@@ -17,7 +15,7 @@ exports.doService = async jsonReq => {
 
 		LOG.info("User logged in.");
 		connection.destroy();
-		return { result: true, message: "User logged in.", results: uuid };
+		return { result: true, message: "User logged in." };
 	}
 
 	catch (error) {
@@ -48,7 +46,6 @@ const loginUser = (connection, jsonReq) => {
 				}
 				if (result[0].validUser > 0) {
 					LOG.info("User logged in.");
-					uuid = connection.query("SELECT uuid from users where username = ?", [jsonReq.username]);
 					return resolve(true);
 				}
 				LOG.info("Invalid credentials.");
