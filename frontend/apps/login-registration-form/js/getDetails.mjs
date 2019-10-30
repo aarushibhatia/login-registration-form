@@ -1,4 +1,5 @@
 import { router } from "/framework/js/router.mjs";
+import { securityguard } from "/framework/js/securityguard.mjs";
 
 const init = async () => {
     try {
@@ -46,7 +47,8 @@ const fillUsersDetails = async () => {
 
 document.querySelector('#logout').addEventListener('click', async (event) => {
     try {
-        router.loadPage(APP_CONSTANTS.REGISTER_THTML);
+        securityguard.setCurrentRole(APP_CONSTANTS.GUEST_ROLE);
+        router.loadPage(APP_CONSTANTS.REGISTER_THTML);   
     }
     catch (error) {
         console.error(error);
@@ -55,13 +57,14 @@ document.querySelector('#logout').addEventListener('click', async (event) => {
 
 const editUserDetails = async () => {
     const buttons = document.querySelectorAll('#edit-button');
-    console.log(buttons);
     for (const rowButton of buttons) {
         rowButton.addEventListener('click', async (event) => {
             try {
                 const num = event.target.parentElement.parentElement.rowIndex;
 
-                const requestObject = {};
+                const requestObject = {
+
+                };
 
                 let responseObject = await (await fetch(APP_CONSTANTS.API_GETDETAILS, { method: "POST", body: JSON.stringify(requestObject) })).json();
                 if (responseObject.result) {

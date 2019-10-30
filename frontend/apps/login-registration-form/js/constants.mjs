@@ -32,7 +32,6 @@ export const APP_CONSTANTS = {
         ],
         user: [
             $$.MONKSHU_CONSTANTS.ERROR_THTML,
-            APP_PATH + "/login.html",
             APP_PATH + "/get-details.html",
             APP_PATH + "/update.html"
         ]

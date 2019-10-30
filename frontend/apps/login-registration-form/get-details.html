@@ -7,10 +7,14 @@
         import { getDetails } from "./js/getDetails.mjs";
         getDetails.init();
     </script>
-    <link href="./css/login.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+    <h2>Welcome, {{user.fullName}}!</h2>
+
+    <br />
+    <br />
+
     <table id="users-table" class="text-center" border="2">
         <thead class="List of registered users.">
             <tr>

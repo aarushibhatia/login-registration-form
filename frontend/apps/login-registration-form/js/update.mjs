@@ -1,4 +1,5 @@
 import { router } from "/framework/js/router.mjs";
+import { securityguard } from "/framework/js/securityguard.mjs";
 
 const init = async () => {
     try {
@@ -10,7 +11,8 @@ const init = async () => {
 
 document.querySelector('#logout').addEventListener('click', async (event) => {
     try {
-        router.loadPage(APP_CONSTANTS.REGISTER_THTML);
+        securityguard.setCurrentRole(APP_CONSTANTS.GUEST_ROLE);
+        router.loadPage(APP_CONSTANTS.REGISTER_THTML); 
     }
     catch (error) {
         console.error(error);

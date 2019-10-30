@@ -30,8 +30,10 @@ exports.doService = async jsonReq => {
 
 const getUserDetails = (connection, jsonReq) => {
     return new Promise((resolve, reject) => {
-        const sql = "SELECT fullName, username from users where isDeleted = 0";
-        connection.query(sql, [jsonReq.username], (error, result) => {
+        const query = "SELECT fullName, username from users where isDeleted = 0";
+        const queryParams = [jsonReq.username];
+        
+        connection.query(query, queryParams, (error, result) => {
             if (error) {
                 LOG.error(error);
                 return reject(false);
@@ -42,7 +44,7 @@ const getUserDetails = (connection, jsonReq) => {
     });
 };
 
-const validateRequest = (jsonReq) => (jsonReq && jsonReq.username);
+const validateRequest = (jsonReq) => (jsonReq);
 
 
 

@@ -11,11 +11,18 @@ exports.doService = async jsonReq => {
 
 		connection = database.getConnection();
 
-		const isRegistered = await createUser(connection, jsonReq);
-		if (!isRegistered) {
-			LOG.info("User could not be registered.");
+		const isRegistered = await checkIfUserExists(connection, jsonReq);
+		if (isRegistered) {
+			LOG.info("User already exists.");
 			connection.destroy();
 			return { result: false, message: "Already a user." };
+		}
+
+		const isUserAdded = await addUser(connection, jsonReq);
+		if (!isUserAdded) {
+			LOG.info("User can not be added.");
+			connection.destroy();
+			return { result: false, message: "User can not be added." };
 		}
 
 		LOG.info("User registered.");
@@ -30,32 +37,50 @@ exports.doService = async jsonReq => {
 	}
 }
 
-const createUser = (connection, jsonReq) => {
+const checkIfUserExists = (connection, jsonReq) => {
+	return new Promise((resolve, reject) => {
+		try {
+			const query = "SELECT EXISTS (SELECT * from users where username = ? and isDeleted = 0) as userExists";
+			const queryParams = [jsonReq.username];
+			connection.query(query, queryParams, (error, result) => {
+				LOG.info(result);
+				if (error) {
+					LOG.error(error);
+					return reject(error);
+				}
+
+				if (result[0].userExists > 0) {
+					LOG.info(result[0]);
+					LOG.info("Username already exists!");
+					return resolve(true);
+				}
+
+				return resolve(false);
+			});
+		}
+		catch (error) {
+			LOG.error(error);
+			return reject(error);
+		}
+	});
+};
+
+const addUser = (connection, jsonReq) => {
 	return new Promise((resolve, reject) => {
 		try {
 			const salt = crypto.randomBytes(16).toString('hex');
-			const sql = "SELECT exists (SELECT * from users where username = ? and isDeleted = 0) as userExists";
-			connection.query(sql, [jsonReq.username], (error, result) => {
+			const query = "INSERT INTO users (uuid, username, fullName, password, salt, timestamp, isDeleted) VALUES(?, ?, ?, ?, ?, ?, ?)";
+			const queryParams = [uuidv4(), jsonReq.username, jsonReq.fullName, sha512(jsonReq.password, salt), salt, new Date().getTime(), 0];
+
+			connection.query(query, queryParams, (error, result) => {
 				if (error) {
 					LOG.error(error);
 					return reject(false);
 				}
-
-				if (result[0].userExists > 0) {
-					LOG.info("Username already exists!");
-					return resolve(false);
+				else {
+					LOG.info(result);
+					return resolve(true);
 				}
-
-				connection.query("INSERT INTO users (uuid, username, fullName, password, salt, timestamp, isDeleted) VALUES(? , ?, ? , ?, ? , ?, ?)", [uuidv4(), jsonReq.username, jsonReq.fullName, crypto.pbkdf2Sync(jsonReq.password, salt, 1000, 64, 'sha512').toString('hex'), salt, new Date().getTime(), 0], (error, result) => {
-					if (error) {
-						LOG.error(error);
-						return reject(false);
-					}
-					else {
-						LOG.info(result);
-						return resolve(true);
-					}
-				});
 			});
 		}
 		catch (error) {
@@ -64,6 +89,9 @@ const createUser = (connection, jsonReq) => {
 		}
 	});
 };
+
+// Hashing algorithm: SHA512
+const sha512 = (password, salt) => crypto.createHmac("sha512", salt).update(password).digest("hex");
 
 const validateRequest = (jsonReq) => (jsonReq && jsonReq.username && jsonReq.password && jsonReq.fullName);
 

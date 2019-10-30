@@ -30,7 +30,10 @@ exports.doService = async jsonReq => {
 
 const deleteUser = (connection, jsonReq) => {
     return new Promise((resolve, reject) => {
-        connection.query('UPDATE users SET isDeleted = 1 where username = ?', [jsonReq.username], (error, result) => {
+        const query = "UPDATE users SET isDeleted = 1 where username = ?";
+        const queryParams = [jsonReq.username];
+
+        connection.query(query, queryParams, (error, result) => {
             if (error) {
                 LOG.error(error);
                 return reject(false);

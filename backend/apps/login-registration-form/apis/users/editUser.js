@@ -33,26 +33,22 @@ exports.doService = async jsonReq => {
 const updateUserDetails = (connection, jsonReq) => {
     return new Promise((resolve, reject) => {
         const salt = crypto.randomBytes(16).toString('hex');
-        const sql = "SELECT exists (SELECT * from users where username = ? and isDeleted = 0) as userExists";
-        connection.query(sql, [jsonReq.username], (error, result) => {
+
+        const query = "UPDATE users SET fullName = ?, password =? where username = ?";
+        const queryParams = [jsonReq.fullName, sha512(jsonReq.password, salt), jsonReq.username];
+
+        connection.query(query, queryParams, function (error, result) {
             if (error) {
                 LOG.error(error);
                 return reject(false);
             }
-            if (result[0].userExists > 0) {
-                connection.query("UPDATE users SET isDeleted = 1 where username = ?", [jsonReq.username]);
-                connection.query("INSERT INTO users (uuid, username, fullName, password, salt, timestamp, isDeleted) VALUES(? , ?, ? , ?, ?, ?, ?)", [uuidv4(), jsonReq.username, jsonReq.fullName, crypto.pbkdf2Sync(jsonReq.password, salt, 1000, 64, 'sha512').toString('hex'), salt, new Date().getTime(), 0], function (error, result) {
-                    if (error) {
-                        LOG.error(error);
-                        return reject(false);
-                    }
-                    LOG.info(result);
-                    return resolve(true);
-                });
-            };
+            LOG.info(result);
+            return resolve(true);
         });
     });
 };
+
+const sha512 = (password, salt) => crypto.createHmac("sha512", salt).update(password).digest("hex");
 
 const validateRequest = (jsonReq) => (jsonReq && jsonReq.username && jsonReq.fullName && jsonReq.password);
 

@@ -52,7 +52,6 @@ const loginUser = (connection, jsonReq) => {
 	});
 };
 
-
 // Hashing algorithm: SHA512
 const sha512 = (password, salt) => crypto.createHmac("sha512", salt).update(password).digest("hex");
 
